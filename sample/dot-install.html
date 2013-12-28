@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>sample of D3.js</title>
+</head>
+<body>
+	<p>test 1</p>
+	<p>test 2</p>
+	<p>test 3</p>
+<script src="http://d3js.org/d3.v3.min.js" charset="utf8"></script>
+<script>
+	var p = d3.select("body").selectAll("p");
+
+	// 書式の基本
+	/*
+	p.text("hello from d3!")
+		.style({
+			"font-size": function(){
+				return Math.floor(Math.random() * 29) + "px";
+			},
+			"font-weight": "bold"
+			});
+	d3.select("body").append("p").text("more appended 4");
+	*/
+
+	// 値を戻す
+	/* alert(p.style("font-size")); */
+
+	// データのバインド
+	/* 
+	var dataset = [12,24,36];
+	p.data(dataset).text(function(d,i){
+		return i + "番目:" + d;
+	});
+	*/
+
+	/* update, enter, exit領域 のコンセプト */
+	var dataset = [12,24,36,48];
+	var update = p.data(dataset);
+	var enter = update.enter();
+	update.text(function(d,i){
+		return "update: " + i + ":" + d;
+	});
+	enter.append("p").text(function(d,i){
+		return "enter: " + i + ":" + d;
+	});
+
+	dataset = [12,24];
+	update = p.data(dataset);
+	exit = update.exit();
+
+	update.text(function(d,i){
+		return "update: " + i + ":" + d;
+	});
+	exit.style("color","red");
+
+</script>
+</body>
+</html>

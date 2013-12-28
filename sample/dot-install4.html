@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>sample of D3.js 3</title>
+	<style>
+		.axis path, .axis line {
+			fill : none;
+			stroke: black;
+		}
+		.axis text {
+			font-size: 11px;
+		}
+	</style>
+</head>
+<body>
+<script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+<script>
+
+	var dataset = [12, 24, 36, 48, 8, 300];
+
+	var w = 500;
+	var h = 200;
+	var padding = 20;
+	
+	var xScale = d3.scale.linear()
+		.domain([0, d3.max(dataset)])
+		.range([padding, w - padding])
+		.nice();
+
+	var svg = d3.select("body").append("svg").attr({width: w, height: h});
+
+	var xAxis = d3.svg.axis()
+		.scale(xScale)
+		.orient("bottom");
+
+	svg.append("g")
+		.attr({
+			class: "axis",
+			transform: "translate(0, 180)"
+		})
+		.call(xAxis);
+
+	svg.selectAll("rect")
+	.data(dataset)
+	.enter()
+	.append("rect")
+	.attr({
+		x: padding,
+		y: function(d, i){ return i * 25; },
+		width: function(d){ return xScale(d) - padding; },
+		height: 20,
+		fill: "red"
+	});
+
+</script>
+</body>
+</html>
