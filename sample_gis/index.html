@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<head>
+	<meta charset="utf-8">
+	<title>千葉行政区　D3</title>
+	<style>
+		body{
+			width: 900px;
+			height: auto;
+			margin: 0 auto;
+		}
+		#map {
+			width: 960px;
+			height: 650px;
+		}
+		#map .selected {
+			stroke: #ff8800;
+			stroke-width: 2;
+			stroke-opacity: 0.5;
+		}
+		#map .over {
+			fill-opacity: 0.5;
+			stroke: #ff8800;
+		}
+		#name {
+			text-align: center;
+			text-size: 16px;
+			line-height: 1;
+		}
+	</style>
+</head>
+<body>
+	<h1><div id="name"></div></h1>
+	<div id="map">
+	</div>
+	<script src="http://d3js.org/d3.v3.min.js"></script>
+	<script src="mapping.js"></script>
+</body>
+
