@@ -18,6 +18,7 @@ sample_gis 行政区データを使って白地図を表示
 [国土数値情報　行政区域データ](http://nlftp.mlit.go.jp/ksj/gml/datalist/KsjTmplt-N03.html)
 
 1. シェイプデータ .shp を取得（上記）テストでは、千葉のデータを利用した
+
 ```
 BALLOONGA:sample_gis baker$ ls -l ~/Downloads/N03-130401_12_GML/
 total 16832
@@ -29,6 +30,7 @@ total 16832
 -rw-rw-rw-@ 1 baker  staff     8188  7 31  2012 N03-13_12_130401.shx
 -rw-rw-rw-@ 1 baker  staff  5758569  7 31  2012 N03-13_12_130401.xml
 ```
+
 2. GeoJSON形式に変換することにする
 3. 変換ツールをインストール　`$ brew install gdal`
 
